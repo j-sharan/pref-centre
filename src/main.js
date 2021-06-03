@@ -33,8 +33,8 @@ class Main {
 
   initialiseOkta() {
     this.oktaWidget = new OktaLogin({
-      baseUrl: 'https://dev-18686994.okta.com',
-      clientId: '0oat5ullll0fCIy2R5d6',
+      baseUrl: 'https://login-staging.zeotap.com',
+      clientId: '0oa1kkxu0r6xSg2j40x7',
       redirectUri: window.location.origin,
       authParams: {
         pkce: false,
