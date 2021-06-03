@@ -1,2 +1,550 @@
-!function(){"use strict";function e(e){if(null==e)return!0;for(var t in e)if(e[t])return!1;return!0}var t=["onmount","onremount","onunmount"],n="undefined"!=typeof window&&"ShadowRoot"in window;function i(i,o,s,a){var l=c(i),d=c(o);o===d&&d.__redom_view&&(o=d.__redom_view),o!==d&&(d.__redom_view=o);var u=d.__redom_mounted,f=d.parentNode;return u&&f!==l&&function(t,n,i){var o=n.__redom_lifecycle;if(e(o))n.__redom_lifecycle={};else{var s=i;for(n.__redom_mounted&&r(n,"onunmount");s;){var a=s.__redom_lifecycle||{};for(var l in o)a[l]&&(a[l]-=o[l]);e(a)&&(s.__redom_lifecycle=null),s=s.parentNode}}}(0,d,f),null!=s?a?l.replaceChild(d,c(s)):l.insertBefore(d,c(s)):l.appendChild(d),function(e,i,o,s){for(var a=i.__redom_lifecycle||(i.__redom_lifecycle={}),l=o===s,d=!1,u=0,c=t;u<c.length;u+=1){var f=c[u];l||e!==i&&f in e&&(a[f]=(a[f]||0)+1),a[f]&&(d=!0)}if(!d)return void(i.__redom_lifecycle={});var g=o,h=!1;(l||g&&g.__redom_mounted)&&(r(i,l?"onremount":"onmount"),h=!0);for(;g;){var m=g.parentNode,v=g.__redom_lifecycle||(g.__redom_lifecycle={});for(var _ in a)v[_]=(v[_]||0)+a[_];if(h)break;(g.nodeType===Node.DOCUMENT_NODE||n&&g instanceof ShadowRoot||m&&m.__redom_mounted)&&(r(g,l?"onremount":"onmount"),h=!0),g=m}}(o,d,l,f),o}function r(e,t){"onmount"===t||"onremount"===t?e.__redom_mounted=!0:"onunmount"===t&&(e.__redom_mounted=!1);var n=e.__redom_lifecycle;if(n){var i=e.__redom_view,o=0;for(var s in i&&i[t]&&i[t](),n)s&&o++;if(o)for(var a=e.firstChild;a;){var l=a.nextSibling;r(a,t),a=l}}}function o(e,t,n){e.style[t]=null==n?"":n}var s="http://www.w3.org/1999/xlink";function a(e,t,n,i){var r=c(e);if("object"==typeof t)for(var s in t)a(r,s,t[s],i);else{var u=r instanceof SVGElement,f="function"==typeof n;if("style"===t&&"object"==typeof n)!function(e,t,n){var i=c(e);if("object"==typeof t)for(var r in t)o(i,r,t[r]);else o(i,t,n)}(r,n);else if(u&&f)r[t]=n;else if("dataset"===t)d(r,n);else if(u||!(t in r)&&!f||"list"===t){if(u&&"xlink"===t)return void l(r,n);i&&"class"===t&&(n=r.className+" "+n),null==n?r.removeAttribute(t):r.setAttribute(t,n)}else r[t]=n}}function l(e,t,n){if("object"==typeof t)for(var i in t)l(e,i,t[i]);else null!=n?e.setAttributeNS(s,t,n):e.removeAttributeNS(s,t,n)}function d(e,t,n){if("object"==typeof t)for(var i in t)d(e,i,t[i]);else null!=n?e.dataset[t]=n:delete e.dataset[t]}function u(e,t,n){for(var r=0,o=t;r<o.length;r+=1){var s=o[r];if(0===s||s){var l=typeof s;"function"===l?s(e):"string"===l||"number"===l?e.appendChild((d=s,document.createTextNode(null!=d?d:""))):f(c(s))?i(e,s):s.length?u(e,s,n):"object"===l&&a(e,s,null,n)}}var d}function c(e){return e.nodeType&&e||!e.el&&e||c(e.el)}function f(e){return e&&e.nodeType}var g={};function h(e){for(var t,n=[],i=arguments.length-1;i-- >0;)n[i]=arguments[i+1];var r=typeof e;if("string"===r)t=v(e).cloneNode(!1);else if(f(e))t=e.cloneNode(!1);else{if("function"!==r)throw new Error("At least one argument required");var o=e;t=new(Function.prototype.bind.apply(o,[null].concat(n)))}return u(c(t),n,!0),t}var m=h;function v(e){return g[e]||(g[e]=function(e,t){var n=function(e){for(var t=e.split(/([#.])/),n="",i="",r=[],o=0;o<t.length;o++){var s=t[o];"#"===s?i=t[++o]:"."===s?r.push(t[++o]):s.length&&(n=s)}return{tag:n||"div",id:i,className:r.join(" ")}}(e),i=n.tag,r=n.id,o=n.className,s=t?document.createElementNS(t,i):document.createElement(i);return r&&(s.id=r),o&&(t?s.setAttribute("class",o):s.className=o),s}(e))}h.extend=function(e){for(var t=[],n=arguments.length-1;n-- >0;)t[n]=arguments[n+1];var i=v(e);return h.bind.apply(h,[this,i].concat(t))};!function(e,t){void 0===t&&(t={});var n=t.insertAt;if(e&&"undefined"!=typeof document){var i=document.head||document.getElementsByTagName("head")[0],r=document.createElement("style");r.type="text/css","top"===n&&i.firstChild?i.insertBefore(r,i.firstChild):i.appendChild(r),r.styleSheet?r.styleSheet.cssText=e:r.appendChild(document.createTextNode(e))}}("* {\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.nav-bar {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  padding: 10px 40px;\n}\n.nav-bar div.left,\n.nav-bar div.right {\n  flex: 1;\n}\n\n.nav-bar div.right {\n  text-align: right;\n}\na.signout {\n  text-decoration: none;\n}\n");class _{signIn;constructor(e){const{loginWidgetElId:t,setUser:n,...i}=e;this.loginWidgetElId=t,this.setUser=n,this.signIn=new OktaSignIn(i)}async init(){try{this.signIn.session.get((async e=>{"ACTIVE"===e.status?this.setUser({username:e.login,userId:e.userId}):this.showSignIn()}))}catch(e){alert("Error",e.message)}}showSignIn(){this.signIn.renderEl({el:"#widget-container"},(e=>{"SUCCESS"===e.status&&(this.signIn.tokenManager.add("id_token",e[0]),this.signIn.tokenManager.add("access_token",e[1]),alert("Already logged in"))}))}signOut(e){return this.signIn.session.close((t=>{if(t)return alert("Error while loggin out",t);e(),this.showSignIn()}))}}class p{constructor(e){this.signOutCallback=e.signOutCallback}render(e){const t=m("div.username",`Hello! ${e.username}`),n=m("a.signout","Logout");n.setAttribute("href","#"),n.addEventListener("click",this.signOutCallback);return m("nav.nav-bar",[m(".left",m("h1.logo","Preference Centre")),m(".right",[t,n])])}}new class{constructor(e,t){this.root=document.getElementById(e),this.loginWidgetElId=t,this.oktaWidget=null,this.navbar=new p({signOutCallback:this.signOutCallback}),this.user=null}setUser=e=>{this.user={...e},this.render()};signOutCallback=()=>{this.oktaWidget.signOut((e=>{this.user=null,this.render()}))};initialiseOkta(){this.oktaWidget=new _({baseUrl:"https://dev-18686994.okta.com",clientId:"0oat5ullll0fCIy2R5d6",redirectUri:window.location.origin,authParams:{pkce:!1,issuer:"default",responseType:["code"]},loginWidgetElId:this.loginWidgetElId,setUser:this.setUser}),this.oktaWidget.init()}render(){if(this.root.innerHTML="",this.user){const e=m("div",this.navbar.render(this.user));i(this.root,e)}else this.initialiseOkta()}init(){this.render()}}("root","widget-container").init()}();
+(function () {
+  'use strict';
+
+  function parseQuery (query) {
+    var chunks = query.split(/([#.])/);
+    var tagName = '';
+    var id = '';
+    var classNames = [];
+
+    for (var i = 0; i < chunks.length; i++) {
+      var chunk = chunks[i];
+      if (chunk === '#') {
+        id = chunks[++i];
+      } else if (chunk === '.') {
+        classNames.push(chunks[++i]);
+      } else if (chunk.length) {
+        tagName = chunk;
+      }
+    }
+
+    return {
+      tag: tagName || 'div',
+      id: id,
+      className: classNames.join(' ')
+    };
+  }
+
+  function createElement (query, ns) {
+    var ref = parseQuery(query);
+    var tag = ref.tag;
+    var id = ref.id;
+    var className = ref.className;
+    var element = ns ? document.createElementNS(ns, tag) : document.createElement(tag);
+
+    if (id) {
+      element.id = id;
+    }
+
+    if (className) {
+      if (ns) {
+        element.setAttribute('class', className);
+      } else {
+        element.className = className;
+      }
+    }
+
+    return element;
+  }
+
+  function doUnmount (child, childEl, parentEl) {
+    var hooks = childEl.__redom_lifecycle;
+
+    if (hooksAreEmpty(hooks)) {
+      childEl.__redom_lifecycle = {};
+      return;
+    }
+
+    var traverse = parentEl;
+
+    if (childEl.__redom_mounted) {
+      trigger(childEl, 'onunmount');
+    }
+
+    while (traverse) {
+      var parentHooks = traverse.__redom_lifecycle || {};
+
+      for (var hook in hooks) {
+        if (parentHooks[hook]) {
+          parentHooks[hook] -= hooks[hook];
+        }
+      }
+
+      if (hooksAreEmpty(parentHooks)) {
+        traverse.__redom_lifecycle = null;
+      }
+
+      traverse = traverse.parentNode;
+    }
+  }
+
+  function hooksAreEmpty (hooks) {
+    if (hooks == null) {
+      return true;
+    }
+    for (var key in hooks) {
+      if (hooks[key]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /* global Node, ShadowRoot */
+
+  var hookNames = ['onmount', 'onremount', 'onunmount'];
+  var shadowRootAvailable = typeof window !== 'undefined' && 'ShadowRoot' in window;
+
+  function mount (parent, child, before, replace) {
+    var parentEl = getEl(parent);
+    var childEl = getEl(child);
+
+    if (child === childEl && childEl.__redom_view) {
+      // try to look up the view if not provided
+      child = childEl.__redom_view;
+    }
+
+    if (child !== childEl) {
+      childEl.__redom_view = child;
+    }
+
+    var wasMounted = childEl.__redom_mounted;
+    var oldParent = childEl.parentNode;
+
+    if (wasMounted && (oldParent !== parentEl)) {
+      doUnmount(child, childEl, oldParent);
+    }
+
+    if (before != null) {
+      if (replace) {
+        parentEl.replaceChild(childEl, getEl(before));
+      } else {
+        parentEl.insertBefore(childEl, getEl(before));
+      }
+    } else {
+      parentEl.appendChild(childEl);
+    }
+
+    doMount(child, childEl, parentEl, oldParent);
+
+    return child;
+  }
+
+  function trigger (el, eventName) {
+    if (eventName === 'onmount' || eventName === 'onremount') {
+      el.__redom_mounted = true;
+    } else if (eventName === 'onunmount') {
+      el.__redom_mounted = false;
+    }
+
+    var hooks = el.__redom_lifecycle;
+
+    if (!hooks) {
+      return;
+    }
+
+    var view = el.__redom_view;
+    var hookCount = 0;
+
+    view && view[eventName] && view[eventName]();
+
+    for (var hook in hooks) {
+      if (hook) {
+        hookCount++;
+      }
+    }
+
+    if (hookCount) {
+      var traverse = el.firstChild;
+
+      while (traverse) {
+        var next = traverse.nextSibling;
+
+        trigger(traverse, eventName);
+
+        traverse = next;
+      }
+    }
+  }
+
+  function doMount (child, childEl, parentEl, oldParent) {
+    var hooks = childEl.__redom_lifecycle || (childEl.__redom_lifecycle = {});
+    var remount = (parentEl === oldParent);
+    var hooksFound = false;
+
+    for (var i = 0, list = hookNames; i < list.length; i += 1) {
+      var hookName = list[i];
+
+      if (!remount) { // if already mounted, skip this phase
+        if (child !== childEl) { // only Views can have lifecycle events
+          if (hookName in child) {
+            hooks[hookName] = (hooks[hookName] || 0) + 1;
+          }
+        }
+      }
+      if (hooks[hookName]) {
+        hooksFound = true;
+      }
+    }
+
+    if (!hooksFound) {
+      childEl.__redom_lifecycle = {};
+      return;
+    }
+
+    var traverse = parentEl;
+    var triggered = false;
+
+    if (remount || (traverse && traverse.__redom_mounted)) {
+      trigger(childEl, remount ? 'onremount' : 'onmount');
+      triggered = true;
+    }
+
+    while (traverse) {
+      var parent = traverse.parentNode;
+      var parentHooks = traverse.__redom_lifecycle || (traverse.__redom_lifecycle = {});
+
+      for (var hook in hooks) {
+        parentHooks[hook] = (parentHooks[hook] || 0) + hooks[hook];
+      }
+
+      if (triggered) {
+        break;
+      } else {
+        if (traverse.nodeType === Node.DOCUMENT_NODE ||
+          (shadowRootAvailable && (traverse instanceof ShadowRoot)) ||
+          (parent && parent.__redom_mounted)
+        ) {
+          trigger(traverse, remount ? 'onremount' : 'onmount');
+          triggered = true;
+        }
+        traverse = parent;
+      }
+    }
+  }
+
+  function setStyle (view, arg1, arg2) {
+    var el = getEl(view);
+
+    if (typeof arg1 === 'object') {
+      for (var key in arg1) {
+        setStyleValue(el, key, arg1[key]);
+      }
+    } else {
+      setStyleValue(el, arg1, arg2);
+    }
+  }
+
+  function setStyleValue (el, key, value) {
+    if (value == null) {
+      el.style[key] = '';
+    } else {
+      el.style[key] = value;
+    }
+  }
+
+  /* global SVGElement */
+
+  var xlinkns = 'http://www.w3.org/1999/xlink';
+
+  function setAttrInternal (view, arg1, arg2, initial) {
+    var el = getEl(view);
+
+    var isObj = typeof arg1 === 'object';
+
+    if (isObj) {
+      for (var key in arg1) {
+        setAttrInternal(el, key, arg1[key], initial);
+      }
+    } else {
+      var isSVG = el instanceof SVGElement;
+      var isFunc = typeof arg2 === 'function';
+
+      if (arg1 === 'style' && typeof arg2 === 'object') {
+        setStyle(el, arg2);
+      } else if (isSVG && isFunc) {
+        el[arg1] = arg2;
+      } else if (arg1 === 'dataset') {
+        setData(el, arg2);
+      } else if (!isSVG && (arg1 in el || isFunc) && (arg1 !== 'list')) {
+        el[arg1] = arg2;
+      } else {
+        if (isSVG && (arg1 === 'xlink')) {
+          setXlink(el, arg2);
+          return;
+        }
+        if (initial && arg1 === 'class') {
+          arg2 = el.className + ' ' + arg2;
+        }
+        if (arg2 == null) {
+          el.removeAttribute(arg1);
+        } else {
+          el.setAttribute(arg1, arg2);
+        }
+      }
+    }
+  }
+
+  function setXlink (el, arg1, arg2) {
+    if (typeof arg1 === 'object') {
+      for (var key in arg1) {
+        setXlink(el, key, arg1[key]);
+      }
+    } else {
+      if (arg2 != null) {
+        el.setAttributeNS(xlinkns, arg1, arg2);
+      } else {
+        el.removeAttributeNS(xlinkns, arg1, arg2);
+      }
+    }
+  }
+
+  function setData (el, arg1, arg2) {
+    if (typeof arg1 === 'object') {
+      for (var key in arg1) {
+        setData(el, key, arg1[key]);
+      }
+    } else {
+      if (arg2 != null) {
+        el.dataset[arg1] = arg2;
+      } else {
+        delete el.dataset[arg1];
+      }
+    }
+  }
+
+  function text (str) {
+    return document.createTextNode((str != null) ? str : '');
+  }
+
+  function parseArgumentsInternal (element, args, initial) {
+    for (var i = 0, list = args; i < list.length; i += 1) {
+      var arg = list[i];
+
+      if (arg !== 0 && !arg) {
+        continue;
+      }
+
+      var type = typeof arg;
+
+      if (type === 'function') {
+        arg(element);
+      } else if (type === 'string' || type === 'number') {
+        element.appendChild(text(arg));
+      } else if (isNode(getEl(arg))) {
+        mount(element, arg);
+      } else if (arg.length) {
+        parseArgumentsInternal(element, arg, initial);
+      } else if (type === 'object') {
+        setAttrInternal(element, arg, null, initial);
+      }
+    }
+  }
+
+  function getEl (parent) {
+    return (parent.nodeType && parent) || (!parent.el && parent) || getEl(parent.el);
+  }
+
+  function isNode (arg) {
+    return arg && arg.nodeType;
+  }
+
+  var htmlCache = {};
+
+  function html (query) {
+    var args = [], len = arguments.length - 1;
+    while ( len-- > 0 ) args[ len ] = arguments[ len + 1 ];
+
+    var element;
+
+    var type = typeof query;
+
+    if (type === 'string') {
+      element = memoizeHTML(query).cloneNode(false);
+    } else if (isNode(query)) {
+      element = query.cloneNode(false);
+    } else if (type === 'function') {
+      var Query = query;
+      element = new (Function.prototype.bind.apply( Query, [ null ].concat( args) ));
+    } else {
+      throw new Error('At least one argument required');
+    }
+
+    parseArgumentsInternal(getEl(element), args, true);
+
+    return element;
+  }
+
+  var el = html;
+
+  html.extend = function extendHtml (query) {
+    var args = [], len = arguments.length - 1;
+    while ( len-- > 0 ) args[ len ] = arguments[ len + 1 ];
+
+    var clone = memoizeHTML(query);
+
+    return html.bind.apply(html, [ this, clone ].concat( args ));
+  };
+
+  function memoizeHTML (query) {
+    return htmlCache[query] || (htmlCache[query] = createElement(query));
+  }
+
+  function styleInject(css, ref) {
+    if ( ref === void 0 ) ref = {};
+    var insertAt = ref.insertAt;
+
+    if (!css || typeof document === 'undefined') { return; }
+
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var style = document.createElement('style');
+    style.type = 'text/css';
+
+    if (insertAt === 'top') {
+      if (head.firstChild) {
+        head.insertBefore(style, head.firstChild);
+      } else {
+        head.appendChild(style);
+      }
+    } else {
+      head.appendChild(style);
+    }
+
+    if (style.styleSheet) {
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+  }
+
+  var css_248z = "* {\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.nav-bar {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  padding: 10px 40px;\n}\n.nav-bar div.left,\n.nav-bar div.right {\n  flex: 1;\n}\n\n.nav-bar div.right {\n  text-align: right;\n}\na.signout {\n  text-decoration: none;\n}\n";
+  styleInject(css_248z);
+
+  class OktaLogin {
+    signIn;
+    constructor(config) {
+      const { loginWidgetElId, setUser, ...signInConfig } = config;
+      this.loginWidgetElId = loginWidgetElId;
+      this.setUser = setUser;
+      this.signIn = new OktaSignIn(signInConfig);
+    }
+    async init() {
+      try {
+        this.signIn.session.get(async (res) => {
+          if (res.status === 'ACTIVE') {
+            // activate login.
+            this.setUser({
+              username: res.login,
+              userId: res.userId,
+            });
+          } else {
+            this.showSignIn();
+          }
+        });
+      } catch (e) {
+        alert('Error', e.message);
+      }
+    }
+    showSignIn() {
+      this.signIn.renderEl({ el: '#widget-container'}, (res) => {
+        if (res.status === 'SUCCESS') {
+          this.signIn.tokenManager.add('id_token', res[0]);
+          this.signIn.tokenManager.add('access_token', res[1]);
+          alert('Already logged in');
+        }
+      });
+    }
+    signOut(callback) {
+      return this.signIn.session.close((err) => {
+        if (err) {
+          return alert('Error while loggin out', err);
+        }
+        callback();
+        this.showSignIn();
+      })
+    }
+  }
+
+  class UserNavigation {
+    constructor(opts) {
+      this.signOutCallback = opts.signOutCallback;
+    }
+
+    render (user) {
+      const hello = el('div.username', `Hello! ${user.username}`);
+      const signOut = el('a.signout', 'Logout');
+      signOut.setAttribute('href', '#');
+      signOut.addEventListener('click', this.signOutCallback);
+      
+      const navbar = el(
+        'nav.nav-bar',
+        [
+          el('.left', el('h1.logo', 'Preference Centre')),
+          el('.right', [hello, signOut])
+        ]
+      );
+      return navbar;
+    }
+  }
+
+  class Main {
+    constructor(rootEl, loginWidgetElId) {
+      this.root = document.getElementById(rootEl);
+      this.loginWidgetElId = loginWidgetElId;
+
+      this.oktaWidget = null;
+      this.navbar = new UserNavigation({
+        signOutCallback: this.signOutCallback
+      });
+      
+      this.user = null;
+    }
+
+    setUser = (user) => {
+      this.user = {
+        ...user,
+      };
+      this.render();
+    }
+
+    signOutCallback = () => {
+      this.oktaWidget.signOut((err) => {
+        this.user = null;
+        this.render();
+      });
+    }
+
+    initialiseOkta() {
+      this.oktaWidget = new OktaLogin({
+        baseUrl: 'https://login-staging.zeotap.com',
+        clientId: '0oa1kkxu0r6xSg2j40x7',
+        redirectUri: window.location.origin,
+        authParams: {
+          pkce: false,
+          issuer: 'default',
+          responseType: ['code']
+        },
+        loginWidgetElId: this.loginWidgetElId,
+        setUser: this.setUser
+      });
+      this.oktaWidget.init();
+    }
+
+    render() {
+      this.root.innerHTML = '';
+      if (this.user) {
+        const hello = el('div', this.navbar.render(this.user));
+        mount(this.root, hello);
+      } else {
+        this.initialiseOkta();
+      }
+    }
+    init() {
+      this.render();
+    }
+  }
+
+  new Main('root', 'widget-container').init();
+
+}());
 //# sourceMappingURL=bundle.js.map
