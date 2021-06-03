@@ -19,7 +19,7 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel start watch",
-    "start": "serve public -l 8181"
+    "start": "serve public -l 8080"
   },
   "dependencies": {
     "@okta/okta-auth-js": "^5.0.2",
