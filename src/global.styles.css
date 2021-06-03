@@ -1,0 +1,21 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 40px;
+}
+.nav-bar div.left,
+.nav-bar div.right {
+  flex: 1;
+}
+
+.nav-bar div.right {
+  text-align: right;
+}
+a.signout {
+  text-decoration: none;
+}

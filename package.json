@@ -1,0 +1,30 @@
+{
+  "name": "pref-centre",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/j-sharan/pref-centre.git",
+  "author": "Jayendra sharan <jayendra.sharan@zeotap.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.50.5",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-watch": "^4.3.1",
+    "serve": "^11.3.2"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "dev": "npm-run-all --parallel start watch",
+    "start": "serve public -l 8181"
+  },
+  "dependencies": {
+    "@okta/okta-auth-js": "^5.0.2",
+    "@okta/okta-signin-widget": "^5.7.0",
+    "postcss": "^8.3.0",
+    "redom": "^3.27.1"
+  }
+}
